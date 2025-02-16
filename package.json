@@ -1,0 +1,23 @@
+{
+  "name": "flexisms",
+  "version": "1.0.0",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ao627515/FlexiSMS.git"
+  },
+  "keywords": [
+    "sms",
+    "api"
+  ],
+  "author": "ao627515",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ao627515/FlexiSMS/issues"
+  },
+  "homepage": "https://github.com/ao627515/FlexiSMS#readme",
+  "description": ""
+}
