@@ -1,10 +1,23 @@
 export class ParticipantRenderer {
+  static #INTANCE = null;
+
   constructor(containerSelector) {
+    if (ParticipantRenderer.#INTANCE) {
+      return ParticipantRenderer.#INTANCE;
+    }
+
     this.listElement = document.querySelector(containerSelector);
+    ParticipantRenderer.#INTANCE = this;
   }
 
   clearList() {
     this.listElement.innerHTML = '';
+  }
+
+  static getIntance() {
+    if (!ParticipantRenderer.#INTANCE) {
+      return new ParticipantRenderer();
+    }
   }
 
   render(participants) {

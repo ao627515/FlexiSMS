@@ -1,5 +1,6 @@
 env.js
 src/db/**
+src/conf/AquilasConf.js
 
 
 # Node

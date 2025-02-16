@@ -4,12 +4,12 @@ export class Participant {
     this.program = data.program;
     this.level = data.level;
     this.name = data.name;
-    this.phone = data.phone;
+    this.phone = data.phone.match(/.{1,2}/g).join(' ');
     this.phoneIndicator = data.phone_indicator;
   }
 
   get fullPhoneNumber() {
-    return `${this.phoneIndicator}${this.phone}`;
+    return `${this.phoneIndicator} ${this.phone}`;
   }
 
   toObject() {

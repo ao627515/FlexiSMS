@@ -1,6 +1,6 @@
 import { DB } from "./db/db.js";
 import { ParticipantRenderer } from "./services/ParticipantRenderer.js";
-import { SMSHandler } from "./services/SMSHandler.js";
+import { SMSSender } from "./services/SMSSender.js";
 import { Participant } from "./models/Participant.js";
 
 export class App {
@@ -15,8 +15,10 @@ export class App {
 
     this.db = DB;
     this.participants = this.loadParticipants();
+    console.log('nb participant :', this.participants.length);
+
     this.renderer = new ParticipantRenderer('.participant-list');
-    this.smsHandler = new SMSHandler();
+    this.smsSender = new SMSSender();
     this.initializeUI();
   }
 
@@ -43,13 +45,14 @@ export class App {
 
   async handleSend() {
     const message = document.querySelector('.message-input').value;
+
     if (!message.trim()) {
       alert('Veuillez saisir un message valide');
       return;
     }
 
     try {
-      await this.smsHandler.send(message, this.participants);
+      await this.smsSender.send(message, this.participants);
       alert('Messages envoyés avec succès !');
     } catch (error) {
       alert('Une erreur est survenue lors de l\'envoi des messages');
