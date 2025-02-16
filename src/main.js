@@ -1,5 +1,3 @@
-import { App } from "./app";
+import { App } from "./App.js";
 
-
-
-App.getIntance().run();
+new App();
